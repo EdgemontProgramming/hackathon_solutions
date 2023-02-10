@@ -45,3 +45,14 @@ class Solutions:
         height_sum = sum(zebra_heights)
         average = round(height_sum/len(zebra_heights))
         return floor(average)
+
+    @classmethod
+    def evans_elephants(cls, distance: int, start_energy: List[int], lose_energies: List[int]) -> int:
+
+        energy_lost: List[int] = [energy * distance for energy in lose_energies]
+        died: int = 0
+        for i in range(len(lose_energies)):
+
+            if start_energy[i] < energy_lost[i]:
+                died += 1
+        return died
