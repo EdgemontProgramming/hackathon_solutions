@@ -24,12 +24,24 @@ class Solutions:
         return round(hypotenuse)
 
     @classmethod
+    def palindromic_phrases(cls, phrase: str) -> int:
+
+        stripped_phrase = phrase.replace(" ", "").lower()
+        revered_phrase = stripped_phrase[::-1]
+        return int(stripped_phrase == revered_phrase)
+
+    @classmethod
+    def count_factors_2(cls, pint: int) -> int:
+
+        factors: int = 0
+        for num in range(1, pint + 1):
+            if pint % num == 0:
+                factors += 1
+        return factors
+
+    @classmethod
     def zany_zebras(cls, zebra_heights: List[int]) -> int:
 
         height_sum = sum(zebra_heights)
         average = round(height_sum/len(zebra_heights))
         return floor(average)
-
-
-
-
